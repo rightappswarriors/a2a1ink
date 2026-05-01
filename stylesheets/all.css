@@ -665,6 +665,7 @@ ol#articles li span {
   .title-area,
   .toggle-topbar {
     display: none !important;
+	  height: max-content;
   }
 }
 
@@ -716,7 +717,70 @@ ol#articles li span {
   .table-container table,
   .table-responsive table {
     width: auto !important;
-    min-width: 600px;
+    min-width: 100%;
+  }
+  
+  /* Ensure table container scrolls properly */
+  .table-container,
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  
+  /* Reduce cell padding on mobile */
+  .table-container table th,
+  .table-container table td,
+  .table-responsive table th,
+  .table-responsive table td {
+    padding: 10px 8px;
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 200px;
+  }
+  
+  /* Keep action buttons column fixed width */
+  .table-container table th:last-child,
+  .table-container table td:last-child,
+  .table-responsive table th:last-child,
+  .table-responsive table td:last-child {
+    position: sticky;
+    right: 0;
+    background: inherit;
+    min-width: 100px;
+  }
+}
+  
+  /* Ensure table container scrolls properly */
+  .table-container,
+  .table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    margin-bottom: 1em;
+  }
+  
+  /* Reduce cell padding on mobile */
+  .table-container table th,
+  .table-container table td,
+  .table-responsive table th,
+  .table-responsive table td {
+    padding: 10px 8px;
+    white-space: normal;
+    word-wrap: break-word;
+    max-width: 200px;
+  }
+  
+  /* Keep action buttons column fixed width */
+  .table-container table th:last-child,
+  .table-container table td:last-child,
+  .table-responsive table th:last-child,
+  .table-responsive table td:last-child {
+    position: sticky;
+    right: 0;
+    background: inherit;
+    min-width: 100px;
   }
 }
 
