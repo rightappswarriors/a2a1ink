@@ -109,50 +109,52 @@
 									<?php
 									$this->session->unset_userdata('update_status');
 								endif ?>
-								<table id="example2" class="table table-bordered table-hover">
-									<thead>
-									<tr>
-										<th width="5%">#</th>
-										<th width="25%">Name</th>
-										<th width="30%">Description</th>
-										<th width="12%">Unit</th>
-										<th width="16%">Category</th>
-										<th width="12%">Action</th>
-									</tr>
-									</thead>
-									<tbody>
+								<div class="table-container">
+									<table id="example2" class="table table-bordered table-hover">
+										<thead>
+										<tr>
+											<th width="5%">#</th>
+											<th width="25%">Name</th>
+											<th width="30%">Description</th>
+											<th width="12%">Unit</th>
+											<th width="16%">Category</th>
+											<th width="12%">Action</th>
+										</tr>
+										</thead>
+										<tbody>
 
-									<?php
-									if ($records->num_rows() > 0) {
-										$ctr = 1;
-										foreach ($records->result() as $row) {
-											?>
-											<tr>
-												<td><?= $ctr++ ?></td>
-												<td><?= $row->item ?></td>
-												<td><?= $row->itemdescr ?></td>
-												<td><?= $row->itemunit ?></td>
-												<td><?= $row->catname ?></td>
-												<td class="text-center">
-													<a class="btn btn-info btn-sm btnedit <?= $this->session->userdata('pms_editdel') ?>"
-													   rel="<?= $row->id ?>" href="#">
-														<i class="fas fa-pencil-alt">
-														</i></a>
-													<a class="btn btn-danger btn-sm btndel <?= $this->session->userdata('pms_editdel') ?>"
-													   rel="<?= $row->id ?>" href="#">
-														<i class="fas fa-trash">
-														</i></a>
-												</td>
-											</tr>
-											<?php
+										<?php
+										if ($records->num_rows() > 0) {
+											$ctr = 1;
+											foreach ($records->result() as $row) {
+												?>
+												<tr>
+													<td><?= $ctr++ ?></td>
+													<td><?= $row->item ?></td>
+													<td><?= $row->itemdescr ?></td>
+													<td><?= $row->itemunit ?></td>
+													<td><?= $row->catname ?></td>
+													<td class="text-center">
+														<a class="btn btn-info btn-sm btnedit <?= $this->session->userdata('pms_editdel') ?>"
+														   rel="<?= $row->id ?>" href="#">
+															<i class="fas fa-pencil-alt">
+															</i></a>
+														<a class="btn btn-danger btn-sm btndel <?= $this->session->userdata('pms_editdel') ?>"
+														   rel="<?= $row->id ?>" href="#">
+															<i class="fas fa-trash">
+															</i></a>
+													</td>
+												</tr>
+												<?php
+											}
 										}
-									}
 
-									?>
+										?>
 
-									</tbody>
+										</tbody>
 
-								</table>
+									</table>
+								</div>
 							</div>
 							<!-- /.card-body -->
 						</div>

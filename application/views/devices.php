@@ -38,56 +38,63 @@
 	</script>
 
 	<div class="row">
-
 		<?php if ($this->session->userdata('update_status')): ?>
 			<?php echo $this->session->userdata('update_status'); ?>
 			<?php
 			$this->session->unset_userdata('update_status');
 		endif ?>
 
-		<table class="table display" id="dtable">
-			<thead>
-			<tr>
-				<th width="2%">#</th>
-				<th width="17%">Name</th>
-				<th width="13%">Model</th>
-				<th width="15%">Serial</th>
-				<th width="10%">Direction</th>
-				<th width="14%">GSM No.</th>
-				<th width="15%">Registered</th>
-				<th width="14%">Action</th>
-			</tr>
-			</thead>
-			<tbody>
+		<div class="table-container">
+			<table class="table display" id="dtable">
+				<thead>
+				<tr>
+					<th width="5%">#</th>
+					<th width="20%">Name</th>
+					<th width="15%">Model</th>
+					<th width="15%">Serial</th>
+					<th width="10%">Direction</th>
+					<th width="15%">GSM No.</th>
+					<th width="15%">Registered</th>
+					<th width="10%">Action</th>
+				</tr>
+				</thead>
+				<tbody>
 
-			<?php
-			if ($records->num_rows() > 0) {
-				$ctr = 1;
-				foreach ($records->result() as $row) {
-					?>
-					<tr>
-						<td><?= $ctr++ ?></td>
-						<td><?= $row->device ?></td>
-						<td><?= $row->modelno ?></td>
-						<td><?= $row->serialno ?></td>
-						<td><?= ucfirst($row->direction) ?></td>
-						<td><?= $row->gsmno ?></td>
-						<td><?= date("m/d/Y", strtotime($row->dateadded)) ?></td>
-						<td class="text-center"><a class="button tiny round success"
-						                           href="<?= site_url("devices/update/") . $row->id ?>"><i
-									class="icon icon-edit"></i></a>&nbsp;<a class="button tiny round alert delitem"
-						                                                    href="<?= site_url("devices/remove/") . $row->id ?>"><i
-									class="icon icon-trash"></i></a></td>
-					</tr>
-					<?php
+				<?php
+				if ($records->num_rows() > 0) {
+					$ctr = 1;
+					foreach ($records->result() as $row) {
+						?>
+						<tr>
+							<td><?= $ctr++ ?></td>
+							<td><?= $row->device ?></td>
+							<td><?= $row->modelno ?></td>
+							<td><?= $row->serialno ?></td>
+							<td><?= ucfirst($row->direction) ?></td>
+							<td><?= $row->gsmno ?></td>
+							<td><?= date("m/d/Y", strtotime($row->dateadded)) ?></td>
+							<td class="text-center">
+								<a class="button tiny round success action-btn"
+								   href="<?= site_url("devices/update/") . $row->id ?>"
+								   title="Edit">
+									<i class="icon icon-edit"></i>
+								</a>
+								<a class="button tiny round alert delitem action-btn"
+								   href="<?= site_url("devices/remove/") . $row->id ?>"
+								   title="Delete">
+									<i class="icon icon-trash"></i>
+								</a>
+							</td>
+						</tr>
+						<?php
+					}
 				}
-			}
 
-			?>
+				?>
 
-			</tbody>
-		</table>
-
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 

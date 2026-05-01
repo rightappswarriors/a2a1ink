@@ -21,8 +21,7 @@ class Dashboard extends CI_Controller {
 		$data['active_menu']='dashboard';
 		
 		$data['records'] = $this->dashboard_model->get_total();
-		$this->load->view('dashboard',$data);
 		
-		//view('pages/dashboard',$data);
+		$this->load->view('dashboard',$data);
 	}
 }

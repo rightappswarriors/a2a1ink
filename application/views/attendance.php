@@ -11,35 +11,37 @@
 			</div>
 
 			<div class="row">
-				<table class="table" width="100%">
-					<thead>
-					<th>#</th>
-					<th>Name</th>
-					<th>Grade</th>
-					<th>Mobile</th>
-					<th></th>
-					</thead>
-					<tbody>
-					<tr>
-						<td>1</td>
-						<td>JOSHUA LENDIO</td>
-						<td>Grade 7</td>
-						<td>09277324510</td>
-						<td>
-							<button class="btn btn-sm">Edit</button>
-						</td>
-					</tr>
-					<tr>
-						<td>2</td>
-						<td>MARIA DE LA ROSA</td>
-						<td>Grade 12</td>
-						<td>09277324510</td>
-						<td>
-							<button class="btn btn-sm">Edit</button>
-						</td>
-					</tr>
-					</tbody>
-				</table>
+				<div class="table-container">
+					<table class="table" width="100%">
+						<thead>
+						<th>#</th>
+						<th>Name</th>
+						<th>Grade</th>
+						<th>Mobile</th>
+						<th></th>
+						</thead>
+						<tbody>
+						<tr>
+							<td>1</td>
+							<td>JOSHUA LENDIO</td>
+							<td>Grade 7</td>
+							<td>09277324510</td>
+							<td>
+								<button class="btn btn-sm">Edit</button>
+							</td>
+						</tr>
+						<tr>
+							<td>2</td>
+							<td>MARIA DE LA ROSA</td>
+							<td>Grade 12</td>
+							<td>09277324510</td>
+							<td>
+								<button class="btn btn-sm">Edit</button>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 	</div>

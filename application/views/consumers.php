@@ -63,42 +63,57 @@
 				$this->session->unset_userdata('update_status');
 			endif ?>
 
-			<table class="table display" id="dtable">
-				<thead>
-				<tr>
-					<th width="4%">#</th>
-					<th width="30%">Name</th>
-					<th width="15%">Category</th>
-					<th width="15%">Card Number</th>
-					<th width="20%">Mobile</th>
-					<th width="16%" class="text-center">Action</th>
-				</tr>
-				</thead>
-				<tbody>
-				<?php
-				if ($records->num_rows() > 0) {
-					$ctr = 1;
-					foreach ($records->result() as $row) {
-						?>
-						<tr>
-							<td><?= ($ctr++) ?></td>
-							<td><?= $row->consumer ?></td>
-							<td><?= $row->catname ?></td>
-							<td><?= $row->cardno ?></td>
-							<td><?= $row->mobileno ?></td>
-							<td class="text-center"><a class="button tiny round success"
-							                           href="<?= site_url("consumers/update/") . $row->id ?>"><i
-										class="icon icon-edit"></i></a>&nbsp;<a class="button tiny round alert delitem"
-							                                                    href="<?= site_url("consumers/remove/") . $row->id ?>"><i
-										class="icon icon-trash"></i></a></td>
-						</tr>
-						<?php
+			<div class="table-container">
+				<table class="table display" id="dtable">
+					<thead>
+					<tr>
+						<th width="4%">#</th>
+						<th width="20%">Name</th>
+						<th width="12%">Photo</th>
+						<th width="15%">Category</th>
+						<th width="15%">Card Number</th>
+						<th width="14%">Mobile</th>
+						<th width="20%" class="text-center">Action</th>
+					</tr>
+					</thead>
+					<tbody>
+					<?php
+					if ($records->num_rows() > 0) {
+						$ctr = 1;
+						foreach ($records->result() as $row) {
+							?>
+							<tr>
+								<td><?= ($ctr++) ?></td>
+								<td><?= $row->consumer ?></td>
+								<td style="text-align: center;">
+									<?php if (!empty($row->photo) && file_exists(FCPATH . $row->photo)): ?>
+										<img src="<?= base_url() . $row->photo ?>" alt="Photo" style="max-width: 60px; max-height: 60px; border-radius: 4px;">
+									<?php else: ?>
+										<span style="color: #999; font-size: 12px;">No photo</span>
+									<?php endif; ?>
+								</td>
+								<td><?= $row->catname ?></td>
+								<td><?= $row->cardno ?></td>
+								<td><?= $row->mobileno ?></td>
+								<td class="text-center">
+									<a class="button tiny round success action-btn"
+									   href="<?= site_url("consumers/update/") . $row->id ?>" title="Edit">
+										<i class="icon icon-edit"></i>
+									</a>
+									<a class="button tiny round alert delitem action-btn"
+									   href="<?= site_url("consumers/remove/") . $row->id ?>" title="Delete">
+										<i class="icon icon-trash"></i>
+									</a>
+								</td>
+							</tr>
+							<?php
+						}
 					}
-				}
 
-				?>
-				</tbody>
-			</table>
+					?>
+					</tbody>
+				</table>
+			</div>
 
 		</div>
 

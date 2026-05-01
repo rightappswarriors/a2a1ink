@@ -86,32 +86,33 @@
 		</div>
 		<div class="row">
 			<div class="large-8 columns">
-
-				<table class="table" width="100%" border="0" style="border:0;">
-					<tbody>
-					<tr>
-						<td style="width:25%" class="text-right">Organization</td>
-						<td style="width:75%"><input type="text" name="organization"
-						                             value="<?= set_value('organization') ?>"
-						                             placeholder="University of Cebu" required></td>
-					</tr>
-					<tr>
-						<td style="width:25%" class="text-right">Address</td>
-						<td style="width:75%"><input type="text" name="address" value="<?= set_value('address') ?>"
-						                             placeholder="Cebu City" required></td>
-					</tr>
-					<tr>
-						<td style="width:25%" class="text-right">Contact No.</td>
-						<td style="width:75%"><input type="text" name="contactno" value="<?= set_value('contactno') ?>"
-						                             placeholder="092882717732" required></td>
-					</tr>
-					<tr>
-						<td style="width:25%" class="text-right">E-mail Address</td>
-						<td style="width:75%"><input type="text" name="email" value="<?= set_value('email') ?>"
-						                             placeholder="email@gmail.com" required></td>
-					</tr>
-					</tbody>
-				</table>
+				<div class="table-container">
+					<table class="table" width="100%" border="0" style="border:0;">
+						<tbody>
+						<tr>
+							<td style="width:25%" class="text-right">Organization</td>
+							<td style="width:75%"><input type="text" name="organization"
+							                             value="<?= set_value('organization') ?>"
+							                             placeholder="University of Cebu" required></td>
+						</tr>
+						<tr>
+							<td style="width:25%" class="text-right">Address</td>
+							<td style="width:75%"><input type="text" name="address" value="<?= set_value('address') ?>"
+							                             placeholder="Cebu City" required></td>
+						</tr>
+						<tr>
+							<td style="width:25%" class="text-right">Contact No.</td>
+							<td style="width:75%"><input type="text" name="contactno" value="<?= set_value('contactno') ?>"
+							                             placeholder="092882717732" required></td>
+						</tr>
+						<tr>
+							<td style="width:25%" class="text-right">E-mail Address</td>
+							<td style="width:75%"><input type="text" name="email" value="<?= set_value('email') ?>"
+							                             placeholder="email@gmail.com" required></td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -121,40 +122,41 @@
 		</div>
 		<div class="row">
 			<div class="large-8 columns">
-				<table class="table" width="100%" border="0" style="border:0;">
-					<tbody>
-					<tr>
-						<td style="width:25%" class="text-right">Username</td>
-						<td style="width:75%"><input type="text" name="username" placeholder="Entrance RFID"
-						                             autocomplete="off" required></td>
-					</tr>
-					<tr>
-						<td style="width:25%" class="text-right">Password</td>
-						<td style="width:75%">
-							<input type="password" id="password" name="password" autocomplete="off"
-							       placeholder="***********" required>
-							<small id="password-msg"></small>
-						</td>
-					</tr>
-					<tr>
-						<td style="width:25%" class="text-right">Repeat password</td>
-						<td style="width:75%">
-							<input type="password" id="rpassword" name="rpassword" autocomplete="off"
-							       placeholder="***********" required>
-							<small id="password-match-msg"></small>
-						</td>
-					</tr>
-					<tr style="background-color:#fff">
-						<td></td>
-						<td style="text-align:right;">
-							<button type="submit" class="button small success"><span class="icon icon-save"></span>
-								Submit
-							</button>
-						</td>
-					</tr>
-					</tbody>
-				</table>
-
+				<div class="table-container">
+					<table class="table" width="100%" border="0" style="border:0;">
+						<tbody>
+						<tr>
+							<td style="width:25%" class="text-right">Username</td>
+							<td style="width:75%"><input type="text" name="username" placeholder="Entrance RFID"
+							                             autocomplete="off" required></td>
+						</tr>
+						<tr>
+							<td style="width:25%" class="text-right">Password</td>
+							<td style="width:75%">
+								<input type="password" id="password" name="password" autocomplete="off"
+								       placeholder="***********" required>
+								<p id="password-msg"></p>
+							</td>
+						</tr>
+						<tr>
+							<td style="width:25%" class="text-right">Repeat password</td>
+							<td style="width:75%">
+								<input type="password" id="rpassword" name="rpassword" autocomplete="off"
+								       placeholder="***********" required>
+								<p id="password-match-msg"></p>
+							</td>
+						</tr>
+						<tr style="background-color:#fff">
+							<td></td>
+							<td style="text-align:right;">
+								<button type="submit" class="button small success"><span class="icon icon-save"></span>
+									Submit
+								</button>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
 		</div>
 

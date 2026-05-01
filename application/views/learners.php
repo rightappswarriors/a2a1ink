@@ -10,38 +10,39 @@
 		</div>
 
 		<div class="row">
-			<table class="table display" id="dtable">
-				<thead>
-				<tr>
-					<th>#</th>
-					<th>Name</th>
-					<th>Grade</th>
-					<th>Mobile</th>
-					<th>Action</th>
-				</tr>
-				</thead>
-				<tbody>
-				<tr>
-					<td>1</td>
-					<td>JOSHUA LENDIO</td>
-					<td>Grade 7</td>
-					<td>09277324510</td>
-					<td>
-						<button>Edit</button>
-					</td>
-				</tr>
-				<tr>
-					<td>2</td>
-					<td>MARIA DE LA ROSA</td>
-					<td>Grade 12</td>
-					<td>09277324510</td>
-					<td>
-						<button>Edit</button>
-					</td>
-				</tr>
-				</tbody>
-			</table>
-
+			<div class="table-container">
+				<table class="table display" id="dtable">
+					<thead>
+					<tr>
+						<th>#</th>
+						<th>Name</th>
+						<th>Grade</th>
+						<th>Mobile</th>
+						<th>Action</th>
+					</tr>
+					</thead>
+					<tbody>
+					<tr>
+						<td>1</td>
+						<td>JOSHUA LENDIO</td>
+						<td>Grade 7</td>
+						<td>09277324510</td>
+						<td>
+							<button>Edit</button>
+						</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>MARIA DE LA ROSA</td>
+						<td>Grade 12</td>
+						<td>09277324510</td>
+						<td>
+							<button>Edit</button>
+						</td>
+					</tr>
+					</tbody>
+				</table>
+			</div>
 		</div>
 
 

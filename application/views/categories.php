@@ -54,40 +54,47 @@
 				$this->session->unset_userdata('update_status');
 			endif ?>
 
-			<table class="table display" id="dtable">
-				<thead>
-				<tr>
-					<th width="2%">#</th>
-					<th width="17%">Name</th>
-					<th width="15%">Added</th>
-					<th width="14%">Action</th>
-				</tr>
-				</thead>
-				<tbody>
+			<div class="table-container">
+				<table class="table display" id="dtable">
+					<thead>
+					<tr>
+						<th width="2%">#</th>
+						<th width="17%">Name</th>
+						<th width="15%">Added</th>
+						<th width="14%">Action</th>
+					</tr>
+					</thead>
+					<tbody>
 
-				<?php
-				if ($records->num_rows() > 0) {
-					$ctr = 1;
-					foreach ($records->result() as $row) {
-						?>
-						<tr>
-							<td><?= ($ctr++) ?></td>
-							<td><?= $row->category ?></td>
-							<td><?= date("m/d/Y", strtotime($row->dateadded)) ?></td>
-							<td class="text-center"><a class="button tiny round success"
-							                           href="<?= site_url("categories/update/") . $row->id ?>"><i
-										class="icon icon-edit"></i></a>&nbsp;<a class="button tiny round alert delitem"
-							                                                    href="<?= site_url("categories/remove/") . $row->id ?>"><i
-										class="icon icon-trash"></i></a></td>
-						</tr>
-						<?php
+					<?php
+					if ($records->num_rows() > 0) {
+						$ctr = 1;
+						foreach ($records->result() as $row) {
+							?>
+							<tr>
+								<td><?= ($ctr++) ?></td>
+								<td><?= $row->category ?></td>
+								<td><?= date("m/d/Y", strtotime($row->dateadded)) ?></td>
+								<td class="text-center">
+									<a class="button tiny round success action-btn"
+									   href="<?= site_url("categories/update/") . $row->id ?>" title="Edit">
+										<i class="icon icon-edit"></i>
+									</a>
+									<a class="button tiny round alert delitem action-btn"
+									   href="<?= site_url("categories/remove/") . $row->id ?>" title="Delete">
+										<i class="icon icon-trash"></i>
+									</a>
+								</td>
+							</tr>
+							<?php
+						}
 					}
-				}
 
-				?>
+					?>
 
-				</tbody>
-			</table>
+					</tbody>
+				</table>
+			</div>
 
 		</div>
 
