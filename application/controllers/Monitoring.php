@@ -14,7 +14,9 @@ class Monitoring extends CI_Controller {
     
 	public function index()
 	{
-		$this->load->view('monitoring');
+		$data['active_menu'] = 'monitoring';
+
+		$this->load->view('monitoring', $data);
 
 	}
 
@@ -22,21 +24,28 @@ class Monitoring extends CI_Controller {
 	{
 		$key = $this->input->get('key');
 
-		if(!empty($key))
+		if(!isset($key) || $key === '')
 		{
-			$cacheKey = 'monitoring_data_' . md5($key);
-			$records = $this->cache->get($cacheKey);
-
-			if ($records === FALSE) {
-				$records = $this->monitoring_model->view_list();
-				$this->cache->save($cacheKey, $records, 2);
-			}
+			return $this->output->set_content_type('application/json')
+				->set_output(json_encode([
+					'status' => 'false',
+					'records' => [],
+				]));
 		}
 
-		$this->output->set_content_type('application/json')
+		$cacheKey = 'monitoring_data_' . md5($key);
+		$records = $this->cache->get($cacheKey);
+
+		if ($records === FALSE) {
+			$records = $this->monitoring_model->view_list();
+			$this->cache->save($cacheKey, $records, 2);
+		}
+
+		return $this->output->set_content_type('application/json')
 			->set_output(json_encode([
 				'status' => 'success',
-				'records' => $records ?? []
+				'records' => $records ?? [],
+				'key' => $key,
 			]));
 	}
 }

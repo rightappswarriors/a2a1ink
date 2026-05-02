@@ -145,6 +145,11 @@
  				>
  					Register
  				</button>
+				<button class="value <?= ($page_title == 'Monitoring' ? 'active' : '') ?>"
+			            onclick="window.location.href=`<?= site_url('monitoring') ?>`"
+				>
+					Monitoring
+				</button>
  			</div>
  		</nav>
  	</aside>
@@ -172,6 +177,11 @@
 				        onclick="window.location.href=`<?= site_url('register') ?>`"
 				>
 					Register
+				</button>
+				<button class="value <?= ($page_title == 'Monitoring' ? 'active' : '') ?>"
+				        onclick="window.location.href=`<?= site_url('monitoring') ?>`"
+				>
+					Monitoring
 				</button>
 			</div>
 		</div>

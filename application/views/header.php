@@ -167,6 +167,11 @@
 				>
 					Logs
 				</button>
+				<button class="value <?= ($active_menu == 'monitoring' ? 'active' : '') ?>"
+				        onclick="window.location.href=`<?= site_url('monitoring') ?>`"
+				>
+					Monitoring
+				</button>
 				<button class="value <?= ($active_menu == 'settings' ? 'active' : '') ?>"
 				        onclick="window.location.href=`<?= site_url('settings') ?>`"
 				>
@@ -230,6 +235,11 @@
 				        onclick="window.location.href=`<?= site_url('logs') ?>`"
 				>
 					Logs
+				</button>
+				<button class="value <?= ($active_menu == 'monitoring' ? 'active' : '') ?>"
+				        onclick="window.location.href=`<?= site_url('monitoring') ?>`"
+				>
+					Monitoring
 				</button>
 				<button class="value <?= ($active_menu == 'settings' ? 'active' : '') ?>"
 				        onclick="window.location.href=`<?= site_url('settings') ?>`"
