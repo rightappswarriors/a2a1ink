@@ -4,6 +4,53 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Monitoring_model extends CI_Model {
 	
 	private $tablename = "storelogs";
+	private function sampleData()
+	{
+		$now = new DateTime();
+
+		return array(
+			array(
+				"photo" => "https://picsum.photos/seed/student1/400/300",
+				"name"  => "Juan dela Cruz",
+				"id"    => "2026-00001",
+				"time"  => $now->format('h:i:s A'),
+				"date"  => $now->format('Y-m-d'),
+				"status"=> "IN"
+			),
+			array(
+				"photo" => "https://picsum.photos/seed/student2/400/300",
+				"name"  => "Maria Santos",
+				"id"    => "2026-00002",
+				"time"  => $now->format('h:i:s A'),
+				"date"  => $now->format('Y-m-d'),
+				"status"=> "IN"
+			),
+			array(
+				"photo" => "https://picsum.photos/seed/student3/400/300",
+				"name"  => "Pedro Reyes",
+				"id"    => "2026-00003",
+				"time"  => $now->format('h:i:s A'),
+				"date"  => $now->format('Y-m-d'),
+				"status"=> "OUT"
+			),
+			array(
+				"photo" => "https://picsum.photos/seed/student4/400/300",
+				"name"  => "Ana Lopez",
+				"id"    => "2026-00004",
+				"time"  => $now->format('h:i:s A'),
+				"date"  => $now->format('Y-m-d'),
+				"status"=> "IN"
+			),
+			array(
+				"photo" => "https://picsum.photos/seed/student2/400/300",
+				"name"  => "Carlos Lando",
+				"id"    => "2026-00006",
+				"time"  => $now->format('h:i:s A'),
+				"date"  => $now->format('Y-m-d'),
+				"status"=> "IN"
+			),
+		);
+	}
 	
 	function __construct(){
         parent::__construct();
@@ -17,7 +64,7 @@ class Monitoring_model extends CI_Model {
 
 	public function view_list()
 	{
-		return array();
+		return $this->sampleData();
 	}
 	
 }
