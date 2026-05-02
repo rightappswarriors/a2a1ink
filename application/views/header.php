@@ -37,6 +37,8 @@
 	<script src="//cdn.datatables.net/buttons/3.2.6/js/buttons.html5.min.js" type="text/javascript"></script>
 	<script src="//cdn.datatables.net/buttons/3.2.6/js/buttons.print.min.js" type="text/javascript"></script>
 
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 	<script src="<?= base_url() ?>javascripts/all.js" type="text/javascript"></script>
 
 	<script type="text/javascript">
