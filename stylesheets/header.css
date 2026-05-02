@@ -95,6 +95,10 @@
         left: 8px;
     }
 
+	.user-window {
+		color: antiquewhite;
+	}
+
     .mobile-logo {
         font-size: 1.2em;
     }

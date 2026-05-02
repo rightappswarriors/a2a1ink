@@ -712,78 +712,6 @@ ol#articles li span {
   white-space: nowrap;
 }
 
-/* Mobile: table stays natural width for scrolling */
-@media screen and (max-width: 768px) {
-  .table-container table,
-  .table-responsive table {
-    width: auto !important;
-    min-width: 100%;
-  }
-  
-  /* Ensure table container scrolls properly */
-  .table-container,
-  .table-responsive {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
-    margin-bottom: 1em;
-  }
-  
-  /* Reduce cell padding on mobile */
-  .table-container table th,
-  .table-container table td,
-  .table-responsive table th,
-  .table-responsive table td {
-    padding: 10px 8px;
-    white-space: normal;
-    word-wrap: break-word;
-    max-width: 200px;
-  }
-  
-  /* Keep action buttons column fixed width */
-  .table-container table th:last-child,
-  .table-container table td:last-child,
-  .table-responsive table th:last-child,
-  .table-responsive table td:last-child {
-    position: sticky;
-    right: 0;
-    background: inherit;
-    min-width: 100px;
-  }
-}
-  
-  /* Ensure table container scrolls properly */
-  .table-container,
-  .table-responsive {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    width: 100%;
-    margin-bottom: 1em;
-  }
-  
-  /* Reduce cell padding on mobile */
-  .table-container table th,
-  .table-container table td,
-  .table-responsive table th,
-  .table-responsive table td {
-    padding: 10px 8px;
-    white-space: normal;
-    word-wrap: break-word;
-    max-width: 200px;
-  }
-  
-  /* Keep action buttons column fixed width */
-  .table-container table th:last-child,
-  .table-container table td:last-child,
-  .table-responsive table th:last-child,
-  .table-responsive table td:last-child {
-    position: sticky;
-    right: 0;
-    background: inherit;
-    min-width: 100px;
-  }
-}
-
 /* Desktop: table fills container */
 @media screen and (min-width: 769px) {
   .table-container table,
@@ -791,6 +719,19 @@ ol#articles li span {
     width: 100% !important;
     min-width: 0;
   }
+}
+
+/* DataTables integration - ensure wrapper respects overflow */
+.table-container .dataTables_wrapper,
+.table-responsive .dataTables_wrapper {
+  overflow: visible !important;
+}
+
+/* Ensure DataTables scroll container inherits parent overflow */
+.dataTables_scroll,
+.dataTables_scrollBody {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
 }
 
 /* Table styling enhancements */
@@ -813,6 +754,8 @@ ol#articles li span {
 }
 
 .table-container table th,
+.table-container table td,
+.table-responsive table th,
 .table-responsive table td {
   white-space: nowrap;
   padding: 13px 16px;
@@ -838,12 +781,6 @@ ol#articles li span {
   border-bottom: none;
 }
 
-.table-container .action-buttons {
-  display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
-  justify-content: center;
-}
 
 /* Mobile-first table adjustments */
 @media screen and (max-width: 768px) {
