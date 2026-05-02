@@ -1,71 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AralLink Timekeeping Display</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AralLink Timekeeping Display</title>
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+			font-family: Arial, sans-serif;
+		}
 
-body {
-    background: #f2f2f2;
-}
+		body {
+			background: #f2f2f2;
+		}
 
-/* 3-COLUMN GRID */
-.container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    height: 100vh;
-    padding: 20px;
-    gap: 20px;
-}
+		/* 3-COLUMN GRID */
+		.container {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			height: 100vh;
+			padding: 20px;
+			gap: 20px;
+		}
 
-/* CARD */
-.card {
-    background: #fff;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
-}
+		/* CARD */
+		.card {
+			background: #fff;
+			border-radius: 12px;
+			padding: 15px;
+			box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+		}
 
-/* IMAGE */
-.photo {
-    width: 100%;
-    height: 70%;
-    object-fit: cover;
-    border: 3px solid #000;
-    border-radius: 8px;
-    margin-bottom: 10px;
-}
+		/* IMAGE */
+		.photo {
+			width: 100%;
+			height: 70%;
+			object-fit: cover;
+			border: 3px solid #000;
+			border-radius: 8px;
+			margin-bottom: 10px;
+		}
 
-/* INFO */
-.info p {
-    font-size: 18px;
-    margin: 5px 0;
-}
+		/* INFO */
+		.info p {
+			font-size: 18px;
+			margin: 5px 0;
+		}
 
-.status {
-    color: green;
-    font-weight: bold;
-}
-</style>
+		.status {
+			color: green;
+			font-weight: bold;
+		}
+	</style>
 
 </head>
 
 <body>
 
-<div class="container" id="container"></div>
+<div class="container" id="timekeeping-container"></div>
 
 
 <script>
-//test
-const container = document.getElementById("container");
+	//test
+	const container = document.getElementById("timekeeping-container");
 
 	// simulate backend data (replace with API later)
 	function getData() {
