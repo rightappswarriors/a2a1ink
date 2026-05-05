@@ -1,4 +1,4 @@
-<?php $this->load->view('header') ?>
+<?php $this->load->view('components/header') ?>
 
 <?php
 
@@ -116,4 +116,4 @@ $row = $record->row();
 
 	</div>
 
-<?php $this->load->view('footer'); ?>
+<?php $this->load->view('components/footer'); ?>

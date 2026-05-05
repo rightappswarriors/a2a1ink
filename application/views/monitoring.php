@@ -1,4 +1,4 @@
-<?php $this->load->view('monitoring_header'); ?>
+<?php $this->load->view('components/monitoring_header'); ?>
 
 	<div class="wrapper">
 		<div class="container" id="timekeeping-container"></div>
@@ -33,13 +33,13 @@
 		async function renderCards() {
 			const data = await getData();
 
-			if(!getKey()) {
-				container.innerHTML = `
-					<div class="info"
-						<h1>Empty Key, Cannot fetch data.</h1>
-					</div>`
-
-			}
+			// if(!getKey()) {
+			// 	container.innerHTML = `
+			// 		<div class="info"
+			// 			<h1>Empty Key, Cannot fetch data.</h1>
+			// 		</div>`
+			//
+			// }
 
 			data.forEach(item => {
 

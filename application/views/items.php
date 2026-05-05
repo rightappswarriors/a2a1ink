@@ -1,4 +1,4 @@
-<?php include('header.php'); ?>
+<?php include('components/header.php'); ?>
 <?php include('menu.php'); ?>
 
 	<style>
@@ -179,4 +179,4 @@
 	</div>
 	<!-- /.content-wrapper -->
 
-<?php include('footer.php') ?>
+<?php include('components/footer.php') ?>

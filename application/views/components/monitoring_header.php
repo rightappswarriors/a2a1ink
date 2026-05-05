@@ -73,7 +73,6 @@
 			display: flex;
 			justify-content: space-between;
 			padding: 10px 0;
-			border-bottom: 1px solid #f0f0f0;
 			font-size: 0.95rem;
 		}
 
@@ -197,7 +196,7 @@
 	if ($accountid) {
 		$org = $CI->dashboard_model->view_info($accountid)->row();
 		if (!empty($org->logo) && file_exists(FCPATH . $org->logo)) {
-			$org_logo_url = base_url() . $org->logo;
+			$org_logo_url = base_url($org->logo);
 			$show_logo = true;
 		}
 	}
@@ -244,7 +243,7 @@
 		</ul>
 
 		<div class="nav-wrapper">
-
+			<p style="margin-bottom: 9px; color: white;">Timekeeping Monitoring</p>
 		</div>
 	</nav>
 </header>

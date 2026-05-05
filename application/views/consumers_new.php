@@ -1,4 +1,4 @@
-<?php $this->load->view('header') ?>
+<?php $this->load->view('components/header') ?>
 
 	<div class="wrapper">
 		<div class="hero">
@@ -140,4 +140,4 @@
 	});
 	</script>
 
-<?php $this->load->view('footer'); ?>
+<?php $this->load->view('components/footer'); ?>

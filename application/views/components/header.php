@@ -114,7 +114,7 @@
 	if ($accountid) {
 	    $org = $CI->dashboard_model->view_info($accountid)->row();
 	    if (!empty($org->logo) && file_exists(FCPATH . $org->logo)) {
-	        $org_logo_url = base_url() . $org->logo;
+	        $org_logo_url = base_url($org->logo);
 	        $show_logo = true;
 	    }
 	}
@@ -237,7 +237,7 @@
 					Logs
 				</button>
 				<button class="value <?= ($active_menu == 'monitoring' ? 'active' : '') ?>"
-				        onclick="window.location.href=`<?= site_url('monitoring') ?>`"
+				        onclick="window.open('<?= site_url('monitoring') ?>', '_blank')"
 				>
 					Monitoring
 				</button>

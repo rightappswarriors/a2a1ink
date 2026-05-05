@@ -146,7 +146,7 @@
  					Register
  				</button>
 				<button class="value <?= ($page_title == 'Monitoring' ? 'active' : '') ?>"
-			            onclick="window.location.href=`<?= site_url('monitoring') ?>`"
+				        onclick="window.open('<?= site_url('monitoring') ?>', '_blank')"
 				>
 					Monitoring
 				</button>
@@ -179,7 +179,7 @@
 					Register
 				</button>
 				<button class="value <?= ($page_title == 'Monitoring' ? 'active' : '') ?>"
-				        onclick="window.location.href=`<?= site_url('monitoring') ?>`"
+				        onclick="window.open('<?= site_url('monitoring') ?>', '_blank')"
 				>
 					Monitoring
 				</button>
