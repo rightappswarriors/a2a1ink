@@ -168,7 +168,7 @@
 					Logs
 				</button>
 				<button class="value <?= ($active_menu == 'monitoring' ? 'active' : '') ?>"
-				        onclick="window.location.href=`<?= site_url('monitoring') ?>`"
+				        onclick="window.open('<?= site_url('monitoring') ?>', '_blank')"
 				>
 					Monitoring
 				</button>
