@@ -22,7 +22,7 @@ class Monitoring extends CI_Controller {
 
 	public function getData()
 	{
-		$key = $this->input->get('key') ? $this->input->get('key') : '876hwer';
+		$key = $this->input->get('key') ? $this->input->get('key') : 'VSH4527987';
 
 		if(!isset($key) || $key === '')
 		{

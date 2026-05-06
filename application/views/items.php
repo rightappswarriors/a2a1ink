@@ -110,7 +110,7 @@
 									$this->session->unset_userdata('update_status');
 								endif ?>
 								<div class="table-container">
-									<table id="example2" class="table table-bordered table-hover">
+									<table id="example2" class="table table-hover">
 										<thead>
 										<tr>
 											<th width="5%">#</th>

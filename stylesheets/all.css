@@ -3,6 +3,22 @@
 	font-family: ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Remove all table borders */
+table,
+.table,
+.table-bordered {
+	border: none !important;
+}
+
+table th,
+table td,
+.table th,
+.table td,
+.table-bordered th,
+.table-bordered td {
+	border: none !important;
+}
+
 body {
   display: flex;
   flex-direction: column;
@@ -247,7 +263,6 @@ aside {
 /* XAMPP stamps table */
 /* line 314, /app/source-xampp-windows/stylesheets/all.scss */
 table#stamps td:first-child {
-  border-right: 1px solid #ddd;
   text-align: center; }
 
 /* social icons */
@@ -687,29 +702,27 @@ ol#articles li span {
 /* Responsive Table Container */
 .table-container,
 .table-responsive {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
   width: 100%;
   margin-bottom: 1em;
   min-width: 0;
-  display: block;
 }
 
 .table-container > table,
 .table-responsive > table {
-  width: auto !important;
-  max-width: none !important;
-  min-width: 100%;
+  width: 100% !important;
+  max-width: 100% !important;
   display: table;
   table-layout: auto;
+  overflow: visible !important;
 }
 
-/* Ensure table cells don't wrap to force horizontal scroll when needed */
+/* Ensure table cells wrap normally */
 .table-container table th,
 .table-container table td,
 .table-responsive table th,
 .table-responsive table td {
-  white-space: nowrap;
+  white-space: normal;
+  word-wrap: break-word;
 }
 
 /* Desktop: table fills container */
@@ -730,19 +743,14 @@ ol#articles li span {
 /* Ensure DataTables scroll container inherits parent overflow */
 .dataTables_scroll,
 .dataTables_scrollBody {
-  overflow-x: auto !important;
-  overflow-y: hidden !important;
+  overflow-x: visible !important;
+  overflow-y: visible !important;
 }
 
 /* Table styling enhancements */
 .table-container {
   width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
   margin-bottom: 1.5em;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
 .table-container table {
@@ -757,17 +765,16 @@ ol#articles li span {
 .table-container table td,
 .table-responsive table th,
 .table-responsive table td {
-  white-space: nowrap;
+  white-space: normal;
+  word-wrap: break-word;
   padding: 13px 16px;
   text-align: left;
-  border-bottom: 1px solid #e8e8e8;
 }
 
 .table-container table th {
   background-color: #f5f5f5;
   color: #333;
   font-weight: 600;
-  border-bottom: 2px solid #ddd;
   text-transform: uppercase;
   font-size: 0.8em;
   letter-spacing: 0.05em;
@@ -780,9 +787,6 @@ ol#articles li span {
 .table-container table tbody tr:last-child td {
   border-bottom: none;
 }
-
-
-/* Mobile-first table adjustments */
 @media screen and (max-width: 768px) {
   .hero h1 {
     font-size: 1.8em;
@@ -1160,11 +1164,7 @@ ol#articles li span {
 /* Responsive Table Styles */
 .table-responsive {
   width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
   margin-bottom: 1em;
-  border: 1px solid #ddd;
-  border-radius: 4px;
 }
 
 .table-responsive table {
@@ -1176,10 +1176,10 @@ ol#articles li span {
 
 .table-responsive table th,
 .table-responsive table td {
-  white-space: nowrap;
+  white-space: normal;
+  word-wrap: break-word;
   padding: 8px 12px;
   text-align: left;
-  border-bottom: 1px solid #ddd;
 }
 
 .table-responsive table th {

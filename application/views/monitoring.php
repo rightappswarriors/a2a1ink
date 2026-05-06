@@ -33,13 +33,13 @@
 		async function renderCards() {
 			const data = await getData();
 
-			// if(!getKey()) {
-			// 	container.innerHTML = `
-			// 		<div class="info"
-			// 			<h1>Empty Key, Cannot fetch data.</h1>
-			// 		</div>`
-			//
-			// }
+			if(!getKey()) {
+				container.innerHTML = `
+					<div class="info"
+						<h1>Empty Key, Cannot fetch data.</h1>
+					</div>`
+
+			}
 
 			data.forEach(item => {
 
