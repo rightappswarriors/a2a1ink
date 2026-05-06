@@ -66,19 +66,12 @@
 			card.dataset.id = d.id;
 
 			card.innerHTML = `
-				<div class="photo-wrapper">
-					<img src="${d.photo}" class="photo" alt="${d.name}" />
-				</div>
+				<img src="${d.photo}" class="photo" alt="${d.name}" />
 
 				<div class="info">
-					<div class="info-row">
-						<span class="info-label">Name</span>
-						<span class="info-value">${d.name}</span>
-					</div>
-
-					<div class="info-row">
-						<span class="info-label">ID</span>
-						<span class="info-value">${d.id}</span>
+					<div class="info-header">
+						<span class="info-name">${d.name}</span>
+						<span class="info-id">ID: ${d.id}</span>
 					</div>
 
 					<div class="info-row">
@@ -92,7 +85,6 @@
 					</div>
 
 					<div class="info-row">
-						<span class="info-label">Status</span>
 						<span class="status-badge ${d.status.toLowerCase()} status">
 							<span class="status-dot"></span>
 							${d.status}

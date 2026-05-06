@@ -41,6 +41,7 @@
 			overflow: hidden;
 			box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
 			transition: transform 0.2s ease, box-shadow 0.2s ease;
+			display: flex;
 		}
 
 		.card:hover {
@@ -48,32 +49,43 @@
 			box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 		}
 
-		.photo-wrapper {
-			position: relative;
-			padding-top: 75%;
-			overflow: hidden;
-		}
-
 		.photo {
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			height: 100%;
+			width: 100px;
+			height: 100px;
 			object-fit: cover;
-			border: 4px solid #fff;
-			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+			border-radius: 12px 0 0 12px;
+			flex-shrink: 0;
 		}
 
 		.info {
-			padding: 20px 22px 22px;
+			padding: 16px 20px;
+			flex: 1;
+		}
+
+		.info-header {
+			margin-bottom: 12px;
+		}
+
+		.info-name {
+			display: block;
+			font-size: 1.4rem;
+			font-weight: 700;
+			color: #222;
+			margin-bottom: 4px;
+		}
+
+		.info-id {
+			display: block;
+			font-size: 0.85rem;
+			color: #666;
+			font-weight: 500;
 		}
 
 		.info-row {
 			display: flex;
 			justify-content: space-between;
-			padding: 10px 0;
-			font-size: 0.95rem;
+			padding: 8px 0;
+			font-size: 0.9rem;
 		}
 
 		.info-row:last-child {

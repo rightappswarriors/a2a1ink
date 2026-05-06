@@ -15,7 +15,8 @@ class Monitoring_model extends CI_Model {
 				"id"    => "2026-00001",
 				"time"  => $now->format('h:i:s A'),
 				"date"  => $now->format('Y-m-d'),
-				"status"=> "IN"
+				"status"=> "IN",
+				"key"   => "VSH4527987"
 			),
 			array(
 				"photo" => "https://picsum.photos/seed/student2/400/300",
@@ -23,7 +24,8 @@ class Monitoring_model extends CI_Model {
 				"id"    => "2026-00002",
 				"time"  => $now->format('h:i:s A'),
 				"date"  => $now->format('Y-m-d'),
-				"status"=> "IN"
+				"status"=> "IN",
+				"key"   => "VSH4527987"
 			),
 			array(
 				"photo" => "https://picsum.photos/seed/student3/400/300",
@@ -31,7 +33,8 @@ class Monitoring_model extends CI_Model {
 				"id"    => "2026-00003",
 				"time"  => $now->format('h:i:s A'),
 				"date"  => $now->format('Y-m-d'),
-				"status"=> "OUT"
+				"status"=> "OUT",
+				"key"   => "VSH5724987"
 			),
 			array(
 				"photo" => "https://picsum.photos/seed/student4/400/300",
@@ -39,7 +42,8 @@ class Monitoring_model extends CI_Model {
 				"id"    => "2026-00004",
 				"time"  => $now->format('h:i:s A'),
 				"date"  => $now->format('Y-m-d'),
-				"status"=> "IN"
+				"status"=> "IN",
+				"key"   => "VSH4527987"
 			),
 			array(
 				"photo" => "https://picsum.photos/seed/student2/400/300",
@@ -47,7 +51,8 @@ class Monitoring_model extends CI_Model {
 				"id"    => "2026-00006",
 				"time"  => $now->format('h:i:s A'),
 				"date"  => $now->format('Y-m-d'),
-				"status"=> "IN"
+				"status"=> "IN",
+				"key"   => "VSH5724987"
 			),
 		);
 	}
@@ -62,9 +67,11 @@ class Monitoring_model extends CI_Model {
 		return $this->db->get($this->tablename);
 	}
 
-	public function view_list()
+	public function view_list($key)
 	{
-		return $this->sampleData();
+		return array_values(array_filter($this->sampleData(), function($value) use ($key) {
+			return $value['key'] === $key;
+		}));
 	}
 	
 }

@@ -37,14 +37,14 @@ class Monitoring extends CI_Controller {
 		$records = $this->cache->get($cacheKey);
 
 		if ($records === FALSE) {
-			$records = $this->monitoring_model->view_list();
+			$records = $this->monitoring_model->view_list($key);
 			$this->cache->save($cacheKey, $records, 2);
 		}
 
 		return $this->output->set_content_type('application/json')
 			->set_output(json_encode([
 				'status' => 'success',
-				'records' => $records ?? [],
+				'records' => $records ?: [],
 				'key' => $key,
 			]));
 	}
