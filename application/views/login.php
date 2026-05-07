@@ -145,11 +145,6 @@
  				>
  					Register
  				</button>
-				<button class="value <?= ($page_title == 'Monitoring' ? 'active' : '') ?>"
-				        onclick="window.open('<?= site_url('monitoring') ?>', '_blank')"
-				>
-					Monitoring
-				</button>
  			</div>
  		</nav>
  	</aside>
@@ -178,11 +173,6 @@
 				>
 					Register
 				</button>
-				<button class="value <?= ($page_title == 'Monitoring' ? 'active' : '') ?>"
-				        onclick="window.open('<?= site_url('monitoring') ?>', '_blank')"
-				>
-					Monitoring
-				</button>
 			</div>
 		</div>
 	</nav>
@@ -190,6 +180,11 @@
 
 	<div class="wrapper">
 		<div class="hero">
+			<div class="row">
+				<div class="large-12 columns">
+					<h1><img src="<?= base_url() ?>arallink.png"/><span><?= $page_title ?></span></h1>
+				</div>
+			</div>
 			<div class="row">
 				<div class="large-8 columns">
 					<form action="<?= site_url('login/process') ?>" method="post" autocomplete="off">
