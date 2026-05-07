@@ -100,14 +100,19 @@
 			font-weight: 600;
 		}
 
-		.status-badge.in {
+		.status-badge.entrance {
 			background: #e8f5e9;
 			color: #2e7d32;
 		}
 
-		.status-badge.out {
+		.status-badge.exit {
 			background: #ffebee;
 			color: #c62828;
+		}
+
+		.status-badge.both {
+			background: #dbeeff;
+			color: #0084ff;
 		}
 
 		.status-dot {

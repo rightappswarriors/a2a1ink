@@ -12,18 +12,17 @@ class Monitoring extends CI_Controller {
 		$this->load->driver('cache', array('adapter' => 'file', 'backup' => 'dummy')); 
 	}
     
-	public function index()
+	public function index($key)
 	{
 		$data['active_menu'] = 'monitoring';
+		$data['key'] = $key;
 
 		$this->load->view('monitoring', $data);
 
 	}
 
-	public function getData()
+	public function getData($key)
 	{
-		$key = $this->input->get('key') ? $this->input->get('key') : 'VSH4527987';
-
 		if(!isset($key) || $key === '')
 		{
 			return $this->output->set_content_type('application/json')

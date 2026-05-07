@@ -4,58 +4,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Monitoring_model extends CI_Model {
 	
 	private $tablename = "storelogs";
-	private function sampleData()
-	{
-		$now = new DateTime();
-
-		return array(
-			array(
-				"photo" => "https://picsum.photos/seed/student1/400/300",
-				"name"  => "Juan dela Cruz",
-				"id"    => "2026-00001",
-				"time"  => $now->format('h:i:s A'),
-				"date"  => $now->format('Y-m-d'),
-				"status"=> "IN",
-				"key"   => "VSH4527987"
-			),
-			array(
-				"photo" => "https://picsum.photos/seed/student2/400/300",
-				"name"  => "Maria Santos",
-				"id"    => "2026-00002",
-				"time"  => $now->format('h:i:s A'),
-				"date"  => $now->format('Y-m-d'),
-				"status"=> "IN",
-				"key"   => "VSH4527987"
-			),
-			array(
-				"photo" => "https://picsum.photos/seed/student3/400/300",
-				"name"  => "Pedro Reyes",
-				"id"    => "2026-00003",
-				"time"  => $now->format('h:i:s A'),
-				"date"  => $now->format('Y-m-d'),
-				"status"=> "OUT",
-				"key"   => "VSH5724987"
-			),
-			array(
-				"photo" => "https://picsum.photos/seed/student4/400/300",
-				"name"  => "Ana Lopez",
-				"id"    => "2026-00004",
-				"time"  => $now->format('h:i:s A'),
-				"date"  => $now->format('Y-m-d'),
-				"status"=> "IN",
-				"key"   => "VSH4527987"
-			),
-			array(
-				"photo" => "https://picsum.photos/seed/student2/400/300",
-				"name"  => "Carlos Lando",
-				"id"    => "2026-00006",
-				"time"  => $now->format('h:i:s A'),
-				"date"  => $now->format('Y-m-d'),
-				"status"=> "IN",
-				"key"   => "VSH5724987"
-			),
-		);
-	}
 	
 	function __construct(){
         parent::__construct();
@@ -69,9 +17,29 @@ class Monitoring_model extends CI_Model {
 
 	public function view_list($key)
 	{
-		return array_values(array_filter($this->sampleData(), function($value) use ($key) {
-			return $value['key'] === $key;
-		}));
+		$this->db->select('
+			s.logdatetime,
+			s.logdate,
+			LOWER(d.direction) as direction,
+			c.consumer,
+			c.photo,
+			s.cardno AS sl_cardno,
+			c.cardno AS cn_cardno
+		');
+
+		$this->db->from('storelogs s');
+
+		$this->db->join('devices d', 's.device = d.serialno', 'left');
+		$this->db->join('consumers c', 's.accountid = c.accountid', 'left');
+
+		$this->db->where('s.device', $key);
+
+		$this->db->order_by('s.logdatetime', 'DESC');
+		$this->db->limit(3);
+
+		$query = $this->db->get();
+
+		return $query->result();
 	}
 	
 }

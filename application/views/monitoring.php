@@ -6,15 +6,15 @@
 
 	<script>
 		const container = document.getElementById("timekeeping-container");
+		const BASE_URL = "<?= site_url() ?>";
+		const KEY = "<?= $key ?>";
 
 		let lastData = new Map();
 
 		async function getData() {
 			try {
-				const key = getKey();
-				const response = await fetch(`monitoring/getdata?key=${key}`);
+				const response = await fetch(`${BASE_URL}monitoring/getdata/${KEY}`);
 				const data = await response.json();
-				console.log(data)
 				return data.records || [];
 			} catch (error) {
 				console.error('Failed to fetch data:', error);
@@ -22,34 +22,18 @@
 			}
 		}
 
-		const getKey = () => {
-			const getKeyUrl = new URLSearchParams(window.location.search).get('key');
-
-			if(!getKeyUrl) return ''
-
-			return getKeyUrl
-		};
-
 		async function renderCards() {
 			const data = await getData();
 
-			if(!getKey()) {
-				container.innerHTML = `
-					<div class="info"
-						<h1>Empty Key, Cannot fetch data.</h1>
-					</div>`
-
-			}
-
 			data.forEach(item => {
 
-				const existing = lastData.get(item.id);
+				const existing = lastData.get(item.cn_cardno);
 
 				if (!existing) {
-					lastData.set(item.id, {
-						id: item.id,
+					lastData.set(item.cn_cardno, {
+						id: item.cn_cardno,
 						photo: item.photo,
-						name: item.name
+						name: item.consumer
 					});
 
 					createCard(item);
@@ -63,39 +47,39 @@
 		function createCard(d) {
 			const card = document.createElement('div');
 			card.className = 'card';
-			card.dataset.id = d.id;
+			card.dataset.id = d.cn_cardno;
 
 			card.innerHTML = `
 				<div class="photo-wrapper">
-					<img src="${d.photo}" class="photo" alt="${d.name}" />
+					<img src="${d.photo}" class="photo" alt="${d.consumer}" />
 				</div>
 
 				<div class="info">
 					<div class="info-row">
 						<span class="info-label">Name</span>
-						<span class="info-value">${d.name}</span>
+						<span class="info-value">${d.consumer}</span>
 					</div>
 
 					<div class="info-row">
 						<span class="info-label">ID</span>
-						<span class="info-value">${d.id}</span>
+						<span class="info-value">${d.cn_cardno}</span>
 					</div>
 
 					<div class="info-row">
 						<span class="info-label">Time</span>
-						<span class="info-value time">${d.time}</span>
+						<span class="info-value time">${parseTime(d.logdatetime)}</span>
 					</div>
 
 					<div class="info-row">
 						<span class="info-label">Date</span>
-						<span class="info-value">${d.date}</span>
+						<span class="info-value">${d.logdate}</span>
 					</div>
 
 					<div class="info-row">
-						<span class="info-label">Status</span>
-						<span class="status-badge ${d.status.toLowerCase()} status">
+						<span class="info-label">Direction</span>
+						<span class="status-badge ${d.direction.toLowerCase()} status">
 							<span class="status-dot"></span>
-							${d.status}
+							${capitalize(d.direction)}
 						</span>
 					</div>
 				</div>
@@ -105,22 +89,35 @@
 		}
 
 		function updateCard(d) {
-			const card = document.querySelector(`[data-id="${d.id}"]`);
+			const card = document.querySelector(`[data-id="${d.cn_cardno}"]`);
 			if (!card) return;
 
 			const timeEl = card.querySelector('.time');
-			if (timeEl && timeEl.textContent !== d.time) {
-				timeEl.textContent = d.time;
+			if (timeEl && timeEl.textContent !== parseTime(d.logdatetime)) {
+				timeEl.textContent = parseTime(d.logdatetime);
 			}
 
 			const statusEl = card.querySelector('.status');
-			if (statusEl && statusEl.textContent.trim() !== d.status) {
-				statusEl.className = `status-badge ${d.status.toLowerCase()} status`;
+			if (statusEl && statusEl.textContent.trim() !== d.direction) {
+				statusEl.className = `status-badge ${d.direction.toLowerCase()} status`;
 				statusEl.innerHTML = `
-            <span class="status-dot"></span>
-            ${d.status}
-        `;
+					<span class="status-dot"></span>
+					${capitalize(d.direction)}
+				`;
 			}
+		}
+
+		function parseTime(datetime) {
+			return new Date(datetime).toLocaleTimeString('en-US', {
+				hour: 'numeric',
+				minute: '2-digit',
+				second: '2-digit',
+				hour12: true
+			})
+		}
+
+		function capitalize(word) {
+			return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
 		}
 		
 		renderCards();

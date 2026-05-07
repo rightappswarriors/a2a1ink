@@ -167,11 +167,11 @@
 				>
 					Logs
 				</button>
-				<button class="value <?= ($active_menu == 'monitoring' ? 'active' : '') ?>"
+				<!--<button class="value <?= ($active_menu == 'monitoring' ? 'active' : '') ?>"
 				        onclick="window.open('<?= site_url('monitoring') ?>', '_blank')"
 				>
 					Monitoring
-				</button>
+				</button>-->
 				<button class="value <?= ($active_menu == 'settings' ? 'active' : '') ?>"
 				        onclick="window.location.href=`<?= site_url('settings') ?>`"
 				>
@@ -236,11 +236,11 @@
 				>
 					Logs
 				</button>
-				<button class="value <?= ($active_menu == 'monitoring' ? 'active' : '') ?>"
+				<!--<button class="value <?= ($active_menu == 'monitoring' ? 'active' : '') ?>"
 				        onclick="window.open('<?= site_url('monitoring') ?>', '_blank')"
 				>
 					Monitoring
-				</button>
+				</button>-->
 				<button class="value <?= ($active_menu == 'settings' ? 'active' : '') ?>"
 				        onclick="window.location.href=`<?= site_url('settings') ?>`"
 				>
